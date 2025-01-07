@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const images = [
-  "/image1.jpg",
-  "/image2.jpg",
-  "/image3.jpg"
+  "/images/Wp2.jpg",
+  "/images/Wp3.jpg",
+  "/images/Wp4.jpg"
 ];
 
 export default function Home() {
