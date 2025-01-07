@@ -1,0 +1,108 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #004aad, #6b99f6);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 15px;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+  
+  .heroButton {
+    background-color: white;
+    color: #004aad;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+  
+  .heroButton:hover {
+    background-color: #eef3fd;
+  }
+  
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feature {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .feature:hover {
+    transform: translateY(-5px);
+  }
+  
+  .featureImage {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .featureTitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .featureText {
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Call to Action Section */
+  .cta {
+    background: linear-gradient(135deg, #fdf3d7, #fbc687);
+    color: #333;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaButton {
+    background-color: #004aad;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background-color: #00368f;
+  }
+  

@@ -1,108 +1,97 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-// Dynamically import react-slick with SSR disabled
-const Slider = dynamic(() => import("react-slick"), { ssr: false });
-
-const images = [
-  "/images/Wp2.jpg",
-  "/images/Wp3.jpg",
-  "/images/Wp4.jpg"
-];
+import { motion } from "framer-motion";
+import styles from "./page.module.css";
 
 export default function Home() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "linear"
-  };
-
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <p>Confirm the image exists in the public/images folder.
-        Confirm the development server is running (npm run dev).</p>
-        <Slider {...settings} className="w-full">
-          {images.map((src, index) => (
-            <div key={index}>
-              <Image
-                src={src}
-                alt={`Image ${index + 1}`}
-                width={180}
-                height={38}
-                priority
-                className="w-full"
-              />
-            </div>
-          ))}
-        </Slider>
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={styles.container}>
+      {/* Hero Section */}
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <h1 className={styles.heroTitle}>The Wonders of AI in the Digital Age</h1>
+        <p className={styles.heroSubtitle}>
+          Explore how Artificial Intelligence is transforming the way we live,
+          work, and interact in this dynamic, ever-evolving world.
+        </p>
+        <motion.button
+          className={styles.heroButton}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          Learn More
+        </motion.button>
+      </motion.section>
+
+      {/* Features Section */}
+      <motion.section
+        className={styles.features}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+        }}
+      >
+        <div className={styles.feature}>
+          <img
+            src="https://www.itbusinessedge.com/wp-content/uploads/2021/07/Robotic-Process-Automation.jpeg"
+            alt="AI Technology"
+            className={styles.featureImage}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h2 className={styles.featureTitle}>Smarter Automation</h2>
+          <p className={styles.featureText}>
+            AI streamlines processes, automates repetitive tasks, and increases
+            efficiency in industries worldwide.
+          </p>
+        </div>
+        <div className={styles.feature}>
+          <img
+            src="https://th.bing.com/th/id/OIP.xnORQuKt8EbA0OMTqp70SwHaE8?w=825&h=550&rs=1&pid=ImgDetMain"
+            alt="Robotics"
+            className={styles.featureImage}
+          />
+          <h2 className={styles.featureTitle}>Intelligent Robotics</h2>
+          <p className={styles.featureText}>
+            From autonomous vehicles, humanoids to robotic surgery, AI-powered machines
+            are reshaping the future.
+          </p>
+        </div>
+        <div className={styles.feature}>
+          <img
+            src="https://www.ariane.com/hubfs/2023/Blog/statistics%20Pierre%20blog%20post/11[2].png"
+            alt="AI and Data"
+            className={styles.featureImage}
+          />
+          <h2 className={styles.featureTitle}>Data-Driven Insights</h2>
+          <p className={styles.featureText}>
+            With powerful algorithms, AI helps us make better decisions using
+            data analysis and predictions.
+          </p>
+        </div>
+      </motion.section>
+
+      {/* Call to Action Section */}
+      <motion.section
+        className={styles.cta}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        <h2 className={styles.ctaTitle}>Ready to Embrace the AI Revolution?</h2>
+        <motion.a
+          href="#"
+          className={styles.ctaButton}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Get Started
+        </motion.a>
+      </motion.section>
     </div>
   );
 }
